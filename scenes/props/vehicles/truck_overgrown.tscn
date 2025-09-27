@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfcpybhaglhko"]
+
+[ext_resource type="Texture2D" uid="uid://d1ssu4r472vn2" path="res://assets/Post-Apocalypse Pixel Art/Objects/Vehicles/Overgrown/Car_7_Overgrown_Truck/Bleak-Yellow/Car_7_Overgrown_Bleak-Yellow_Blue_Truck.png" id="1_5e8hw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5e8hw"]
+size = Vector2(26.9349, 61.7235)
+
+[node name="TruckOvergrown" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5e8hw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.269525, 2.31091)
+rotation = 0.759218
+shape = SubResource("RectangleShape2D_5e8hw")

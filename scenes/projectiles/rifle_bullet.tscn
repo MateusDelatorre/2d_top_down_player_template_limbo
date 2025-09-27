@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://yaf5klyq0pbv"]
+
+[ext_resource type="Script" uid="uid://dcq8xca1o5fhv" path="res://scripts/projectiles/bullet.gd" id="1_3bgxn"]
+[ext_resource type="Texture2D" uid="uid://bg6l3pdifgw4x" path="res://assets/Post-Apocalypse Pixel Art/Character/Guns/Bullets/Gun-bullet_Whole.png" id="1_rgmj4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bgxn"]
+size = Vector2(4, 1)
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_rgmj4")
+
+[node name="RifleBullet" type="Area2D" parent="."]
+script = ExtResource("1_3bgxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RifleBullet"]
+shape = SubResource("RectangleShape2D_3bgxn")

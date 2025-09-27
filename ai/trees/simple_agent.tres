@@ -1,0 +1,43 @@
+[gd_resource type="BehaviorTree" load_steps=13 format=3 uid="uid://dyovn255qf4tp"]
+
+[ext_resource type="Script" uid="uid://bc7yvgo01reh" path="res://ai/tasks/get_first_in_group.gd" id="1_ftah5"]
+[ext_resource type="Script" uid="uid://wbn3owye4rqs" path="res://ai/tasks/pursue.gd" id="2_aqyph"]
+[ext_resource type="Script" uid="uid://dhhg2ikem7c87" path="res://ai/tasks/face_target.gd" id="3_4t0xp"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_u7ml2"]
+
+[sub_resource type="BTAction" id="BTAction_aqyph"]
+script = ExtResource("1_ftah5")
+group = &"player"
+output_var = &"target"
+
+[sub_resource type="BBNode" id="BBNode_4t0xp"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_hvk2e"]
+animation_player = SubResource("BBNode_4t0xp")
+animation_name = &"idle_down"
+
+[sub_resource type="BTAction" id="BTAction_4t0xp"]
+script = ExtResource("2_aqyph")
+target_var = &"target"
+speed_var = &"speed"
+approach_distance = 0.0
+
+[sub_resource type="BTSequence" id="BTSequence_5k1kr"]
+children = [SubResource("BTAction_aqyph"), SubResource("BTPlayAnimation_hvk2e"), SubResource("BTAction_4t0xp")]
+
+[sub_resource type="BTAction" id="BTAction_hvk2e"]
+script = ExtResource("3_4t0xp")
+target_var = &"target"
+
+[sub_resource type="BTSequence" id="BTSequence_aqyph"]
+children = [SubResource("BTAction_hvk2e")]
+
+[sub_resource type="BTSequence" id="BTSequence_78s4i"]
+children = [SubResource("BTSequence_5k1kr"), SubResource("BTSequence_aqyph")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_u7ml2")
+root_task = SubResource("BTSequence_78s4i")

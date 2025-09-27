@@ -1,0 +1,61 @@
+@startuml classes
+' Declaring classes
+
+package weapons {
+    abstract WeaponBase{
+        void Attack()
+    }
+    class Gun{
+        + Bullet bullet_scene
+        + Marker2D barrel
+        + AnimationPlayer animation_player
+        + void Attack()
+    }
+    class WeaponManager{
+        +Array<WeaponBase> weapons
+        +int current_weapon_index
+        +void Attack()
+        +void switch_weapon(int index)
+    }
+    class Hands{
+    }
+}
+package projectiles {
+    class Bullet{
+        +float speed
+        +void _area_entered()
+        +void _on_body_entered()
+    }
+}
+package agents{
+    package components {
+        class Health
+        class Hitbox{
+            +float damage
+            +void _area_entered()
+        }
+        class Hurtbox{
+            +Health health
+            +void take_damage()
+        }
+    }
+    
+    class AgentBase {
+        +WeaponManager weapon_manager
+        +void _process()
+        +void _ready()
+    }
+}
+package player{
+    class Player{
+        +Health health
+        +Hitbox hitbox
+        +Hurtbox hurtbox
+    }
+}
+
+AgentBase <|-- Player
+Hitbox <|-- Bullet
+WeaponBase <|--  Gun
+Gun  *-- Bullet
+@enduml

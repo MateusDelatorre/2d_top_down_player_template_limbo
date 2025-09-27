@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://hhq4wyfg613q"]
+
+[ext_resource type="Script" uid="uid://b6tdhy3w7qg04" path="res://scripts/agents/components/hurtbox.gd" id="2_ojn1e"]
+[ext_resource type="Script" uid="uid://cy615d60xeggv" path="res://scenes/debug/dummy.gd" id="2_sii8n"]
+[ext_resource type="Texture2D" uid="uid://dx75ewbcx4s3e" path="res://icon.svg" id="3_sii8n"]
+[ext_resource type="Script" uid="uid://dcunpb1ls3rt4" path="res://scripts/agents/components/health.gd" id="4_haxxv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojn1e"]
+size = Vector2(126, 127)
+
+[node name="Sprite2D" type="Sprite2D"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_sii8n")
+script = ExtResource("2_sii8n")
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+script = ExtResource("2_ojn1e")
+health = NodePath("../Health")
+metadata/_custom_type_script = "uid://b6tdhy3w7qg04"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ojn1e")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("4_haxxv")
+metadata/_custom_type_script = "uid://dcunpb1ls3rt4"
+
+[connection signal="damaged" from="Health" to="." method="_on_health_damaged"]
