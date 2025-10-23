@@ -1,4 +1,4 @@
-class_name Player
+class_name MyPlayer
 extends AgentBase
 
 @export var speed = 200

@@ -1,11 +1,11 @@
 extends LimboHSM
 
-@export var player : Player
+@export var player : MyPlayer
 @export var states : Dictionary[String, LimboState]
 
 func _enter_tree():
 	if not player:
-		if get_parent() is Player:
+		if get_parent() is MyPlayer:
 			player = get_parent()
 
 func _ready():

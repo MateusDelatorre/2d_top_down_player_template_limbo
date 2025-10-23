@@ -4,10 +4,10 @@ extends LimboState
 @export var animation_name : StringName
 var direction_name : StringName
 var equipament_name : StringName
-static var player : Player
+static var player : MyPlayer
 
 func _enter_tree() -> void:
-	if owner is Player:
+	if owner is MyPlayer:
 		player = owner
 
 func _ready() -> void:

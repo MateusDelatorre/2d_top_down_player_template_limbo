@@ -17,12 +17,19 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=320
-window/size/viewport_height=180
 window/size/window_width_override=1280
 window/size/window_height_override=720
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+window/snap/snap_2d_vertices_to_pixel=true
+window/snap/snap_2d_transforms_to_pixel=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ballistic_solutions_gdscript/plugin.cfg", "res://addons/fancy_folder_icons/plugin.cfg", "res://addons/real_equation_solver/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

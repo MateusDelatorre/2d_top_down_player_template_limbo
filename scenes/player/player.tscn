@@ -1,6 +1,6 @@
-[gd_scene load_steps=34 format=3 uid="uid://cqy42pxxaku50"]
+[gd_scene load_steps=35 format=3 uid="uid://cqy42pxxaku50"]
 
-[ext_resource type="Script" uid="uid://d2aa3j4xq6ibo" path="res://scripts/player/player.gd" id="1_8afob"]
+[ext_resource type="Script" uid="uid://d2aa3j4xq6ibo" path="res://scripts/player/my_player.gd" id="1_8ydkj"]
 [ext_resource type="Script" uid="uid://b85hbvo5345m1" path="res://scripts/player/hsm/limbo_hsm.gd" id="2_dovo2"]
 [ext_resource type="Texture2D" uid="uid://0y6trgyh7pmi" path="res://assets/Post-Apocalypse Pixel Art/Character/Main/Idle/Character_down_idle_no-hands-Sheet6.png" id="3_h17s1"]
 [ext_resource type="Script" uid="uid://cqxmltjess86w" path="res://scripts/player/states/idle_state.gd" id="3_lvxji"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://d1usfb5d68252" path="res://assets/Post-Apocalypse Pixel Art/Character/Main/Run/Character_up_run_no-hands-Sheet6.png" id="10_kvlxm"]
 [ext_resource type="Texture2D" uid="uid://cmlfvmtowvdcx" path="res://assets/Post-Apocalypse Pixel Art/Character/Main/Death/Character_side-left_death1_NoHands-Sheet6.png" id="11_uf5tr"]
 [ext_resource type="Texture2D" uid="uid://4ydhh3uouebt" path="res://assets/Post-Apocalypse Pixel Art/Character/Main/Death/Character_side_death1_NoHands-Sheet6.png" id="12_lgqa7"]
+[ext_resource type="InventoryDatabase" uid="uid://dxf8won8ig3b7" path="res://resources/inventory/database.tres" id="20_8ydkj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h17s1"]
 size = Vector2(10, 15)
@@ -504,7 +505,7 @@ _data = {
 z_index = 1
 motion_mode = 1
 wall_min_slide_angle = 0.174533
-script = ExtResource("1_8afob")
+script = ExtResource("1_8ydkj")
 metadata/_custom_type_script = "uid://d2aa3j4xq6ibo"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -592,3 +593,6 @@ script = ExtResource("8_5gtgg")
 metadata/_custom_type_script = "uid://dcunpb1ls3rt4"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Inventory" type="Inventory" parent="."]
+database = ExtResource("20_8ydkj")
