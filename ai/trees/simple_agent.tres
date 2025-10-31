@@ -26,6 +26,7 @@ speed_var = &"speed"
 approach_distance = 0.0
 
 [sub_resource type="BTSequence" id="BTSequence_5k1kr"]
+custom_name = "Pursue Player"
 children = [SubResource("BTAction_aqyph"), SubResource("BTPlayAnimation_hvk2e"), SubResource("BTAction_4t0xp")]
 
 [sub_resource type="BTAction" id="BTAction_hvk2e"]

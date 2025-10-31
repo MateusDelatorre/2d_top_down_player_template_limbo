@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://wroy8m6rvdol"]
+
+[ext_resource type="Texture2D" uid="uid://d4ek4cc5ahxbw" path="res://assets/Post-Apocalypse Pixel Art/UI/Heart_Full.png" id="1_f4h3p"]
+[ext_resource type="Script" uid="uid://bft8y0nmofdue" path="res://scripts/player/interface/player_interface.gd" id="1_gkyc1"]
+
+[node name="PlayerInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_gkyc1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 81.0
+offset_bottom = 12.0
+scale = Vector2(6, 6)
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_f4h3p")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_f4h3p")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_f4h3p")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_f4h3p")
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_f4h3p")
+stretch_mode = 2

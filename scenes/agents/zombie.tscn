@@ -1,23 +1,24 @@
-[gd_scene load_steps=39 format=3 uid="uid://blmku5gik12d4"]
+[gd_scene load_steps=40 format=3 uid="uid://blmku5gik12d4"]
 
-[ext_resource type="Script" uid="uid://6vba72d1t572" path="res://scripts/agents/enemies/simple_agent.gd" id="1_fhibg"]
-[ext_resource type="Script" uid="uid://dcunpb1ls3rt4" path="res://scripts/agents/components/health.gd" id="2_j08gw"]
-[ext_resource type="Script" uid="uid://b68rgqnpr5wsi" path="res://scripts/agents/components/hitbox.gd" id="3_wvxh5"]
-[ext_resource type="Script" uid="uid://b6tdhy3w7qg04" path="res://scripts/agents/components/hurtbox.gd" id="4_8gevb"]
-[ext_resource type="Texture2D" uid="uid://bko0swwikcbep" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Down_First-Attack-Sheet4.png" id="6_fhibg"]
-[ext_resource type="Texture2D" uid="uid://xjx6vin32e2a" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side-left_First-Attack-Sheet4.png" id="7_fhibg"]
-[ext_resource type="Texture2D" uid="uid://kbnqmmdubfxg" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side_First-Attack-Sheet4.png" id="8_ffa7d"]
-[ext_resource type="Texture2D" uid="uid://co5g0e8m3a77s" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Up_First-Attack-Sheet4.png" id="9_75w2c"]
-[ext_resource type="Texture2D" uid="uid://cj574l8bjk8n4" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side-left_Second-Death-Sheet7.png" id="10_5p62b"]
-[ext_resource type="Texture2D" uid="uid://dqifybdlrxgxd" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side_Second-Death-Sheet7.png" id="11_3l368"]
-[ext_resource type="Texture2D" uid="uid://crqiyglpot4pg" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Down_Idle-Sheet6.png" id="12_5waup"]
-[ext_resource type="Texture2D" uid="uid://c4ld3h5l4pkju" path="res://assets/Post-Apocalypse Pixel Art/Character/Main/Idle/Hands_Side-left_idle-Sheet6.png" id="12_uukcw"]
-[ext_resource type="Texture2D" uid="uid://cjv3cxb7nsqef" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side_Idle-Sheet6.png" id="14_2yodv"]
-[ext_resource type="Texture2D" uid="uid://cg4yfkrhpydd1" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Up_Idle-Sheet6.png" id="15_uukcw"]
-[ext_resource type="Texture2D" uid="uid://8h2edpfvyjq7" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Down_walk-Sheet6.png" id="16_nu0ol"]
-[ext_resource type="Texture2D" uid="uid://bp7boboiai8rs" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side-left_Walk-Sheet6.png" id="17_127e8"]
-[ext_resource type="BehaviorTree" uid="uid://dyovn255qf4tp" path="res://ai/trees/simple_agent.tres" id="18_fhibg"]
-[ext_resource type="Texture2D" uid="uid://d08kdlu726iss" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side_Walk-Sheet6.png" id="18_l7nfh"]
+[ext_resource type="Script" uid="uid://6vba72d1t572" path="res://scripts/agents/enemies/simple_agent.gd" id="1_q2m0c"]
+[ext_resource type="Texture2D" uid="uid://crqiyglpot4pg" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Down_Idle-Sheet6.png" id="2_pjps8"]
+[ext_resource type="Script" uid="uid://dcunpb1ls3rt4" path="res://scripts/agents/components/health.gd" id="3_rrsmc"]
+[ext_resource type="Script" uid="uid://b68rgqnpr5wsi" path="res://scripts/agents/components/hitbox.gd" id="4_cg55q"]
+[ext_resource type="Script" uid="uid://b6tdhy3w7qg04" path="res://scripts/agents/components/hurtbox.gd" id="5_ujaj4"]
+[ext_resource type="Texture2D" uid="uid://bko0swwikcbep" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Down_First-Attack-Sheet4.png" id="6_436w8"]
+[ext_resource type="Texture2D" uid="uid://xjx6vin32e2a" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side-left_First-Attack-Sheet4.png" id="7_ywt4i"]
+[ext_resource type="Texture2D" uid="uid://kbnqmmdubfxg" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side_First-Attack-Sheet4.png" id="8_6f8of"]
+[ext_resource type="Texture2D" uid="uid://co5g0e8m3a77s" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Up_First-Attack-Sheet4.png" id="9_wjpop"]
+[ext_resource type="Texture2D" uid="uid://cj574l8bjk8n4" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side-left_Second-Death-Sheet7.png" id="10_h1jri"]
+[ext_resource type="Texture2D" uid="uid://dqifybdlrxgxd" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side_Second-Death-Sheet7.png" id="11_vtjfw"]
+[ext_resource type="Texture2D" uid="uid://c4ld3h5l4pkju" path="res://assets/Post-Apocalypse Pixel Art/Character/Main/Idle/Hands_Side-left_idle-Sheet6.png" id="12_8p7ea"]
+[ext_resource type="Texture2D" uid="uid://cjv3cxb7nsqef" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side_Idle-Sheet6.png" id="13_7f3nr"]
+[ext_resource type="Texture2D" uid="uid://cg4yfkrhpydd1" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Up_Idle-Sheet6.png" id="14_8bafk"]
+[ext_resource type="Texture2D" uid="uid://8h2edpfvyjq7" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Down_walk-Sheet6.png" id="15_7jpb3"]
+[ext_resource type="Texture2D" uid="uid://bp7boboiai8rs" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side-left_Walk-Sheet6.png" id="16_46vnc"]
+[ext_resource type="Texture2D" uid="uid://d08kdlu726iss" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side_Walk-Sheet6.png" id="17_k4vr6"]
+[ext_resource type="BehaviorTree" uid="uid://dyovn255qf4tp" path="res://ai/trees/simple_agent.tres" id="18_q58aq"]
+[ext_resource type="Script" uid="uid://c6wbdgmvb4pgd" path="res://scripts/agents/enemies/zombie/state_machine.gd" id="19_c0kyo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0wms"]
 size = Vector2(8, 12)
@@ -41,7 +42,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("12_5waup")]
+"values": [ExtResource("2_pjps8")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -82,7 +83,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_fhibg")]
+"values": [ExtResource("6_436w8")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -123,7 +124,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_fhibg")]
+"values": [ExtResource("7_ywt4i")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -164,7 +165,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("8_ffa7d")]
+"values": [ExtResource("8_6f8of")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -205,7 +206,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("9_75w2c")]
+"values": [ExtResource("9_wjpop")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -246,7 +247,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("10_5p62b")]
+"values": [ExtResource("10_h1jri")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -287,7 +288,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("11_3l368")]
+"values": [ExtResource("11_vtjfw")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -329,7 +330,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("12_5waup")]
+"values": [ExtResource("2_pjps8")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -371,7 +372,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("12_uukcw")]
+"values": [ExtResource("12_8p7ea")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -413,7 +414,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("14_2yodv")]
+"values": [ExtResource("13_7f3nr")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -455,7 +456,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("15_uukcw")]
+"values": [ExtResource("14_8bafk")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -497,7 +498,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("16_nu0ol")]
+"values": [ExtResource("15_7jpb3")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -539,7 +540,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("17_127e8")]
+"values": [ExtResource("16_46vnc")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -581,7 +582,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("18_l7nfh")]
+"values": [ExtResource("17_k4vr6")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -623,7 +624,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("15_uukcw")]
+"values": [ExtResource("14_8bafk")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -671,14 +672,14 @@ _data = {
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_fhibg"]
 
-[node name="SimpleAgent" type="CharacterBody2D"]
+[node name="Zombie" type="CharacterBody2D"]
 motion_mode = 1
 wall_min_slide_angle = 0.174533
-script = ExtResource("1_fhibg")
+script = ExtResource("1_q2m0c")
 metadata/_custom_type_script = "uid://covhldhl5j6mo"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("12_5waup")
+texture = ExtResource("2_pjps8")
 hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -687,13 +688,13 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_t0wms")
 
 [node name="Health" type="Node" parent="."]
-script = ExtResource("2_j08gw")
+script = ExtResource("3_rrsmc")
 max_health = 1.0
 metadata/_custom_type_script = "uid://dcunpb1ls3rt4"
 
 [node name="Hitbox" type="Area2D" parent="."]
 visible = false
-script = ExtResource("3_wvxh5")
+script = ExtResource("4_cg55q")
 metadata/_custom_type_script = "uid://b68rgqnpr5wsi"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
@@ -702,7 +703,7 @@ shape = SubResource("RectangleShape2D_j08gw")
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
 visible = false
-script = ExtResource("4_8gevb")
+script = ExtResource("5_ujaj4")
 health = NodePath("../Health")
 metadata/_custom_type_script = "uid://b6tdhy3w7qg04"
 
@@ -716,5 +717,8 @@ libraries = {
 }
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
-behavior_tree = ExtResource("18_fhibg")
+behavior_tree = ExtResource("18_q58aq")
 blackboard_plan = SubResource("BlackboardPlan_fhibg")
+
+[node name="LimboHSM" type="LimboHSM" parent="."]
+script = ExtResource("19_c0kyo")

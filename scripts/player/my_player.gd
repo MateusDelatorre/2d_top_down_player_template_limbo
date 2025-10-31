@@ -6,6 +6,8 @@ var current_state : PlayerState
 @onready var state_machine : LimboHSM
 @onready var weapon_manager : WeaponManager
 
+
+
 func _ready() -> void:
 	super._ready()
 	if not animation_player:

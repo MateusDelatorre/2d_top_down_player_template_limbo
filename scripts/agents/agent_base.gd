@@ -13,6 +13,7 @@ extends CharacterBody2D
 ## Base agent script that is shared by all agents.
 
 signal death
+signal health_changed(current_health: float, max_health: float)
 
 var _frames_since_facing_update: int = 0
 var _is_dead: bool = false

@@ -592,7 +592,7 @@ libraries = {
 script = ExtResource("8_5gtgg")
 metadata/_custom_type_script = "uid://dcunpb1ls3rt4"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Inventory" type="Inventory" parent="."]
 database = ExtResource("20_8ydkj")
+
+[node name="Camera2D" type="Camera2D" parent="."]

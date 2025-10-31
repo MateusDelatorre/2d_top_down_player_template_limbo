@@ -11,14 +11,18 @@ config_version=5
 [application]
 
 config/name="2d_top_down_player_template_limbo"
-run/main_scene="uid://c58h706skbnsp"
+run/main_scene="uid://bx5x3qxxryknl"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameData="*res://scripts/game_data.gd"
+
 [display]
 
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 window/snap/snap_2d_vertices_to_pixel=true
@@ -26,7 +30,11 @@ window/snap/snap_2d_transforms_to_pixel=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ballistic_solutions_gdscript/plugin.cfg", "res://addons/fancy_folder_icons/plugin.cfg", "res://addons/real_equation_solver/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+enabled=PackedStringArray()
+
+[physics]
+
+2d/run_on_separate_thread=true
 
 [rendering]
 
