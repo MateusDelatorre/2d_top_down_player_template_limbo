@@ -24,10 +24,11 @@ tile_set = ExtResource("1_gk8w0")
 [node name="Dummy" parent="." instance=ExtResource("5_83jwe")]
 position = Vector2(224, 46)
 
-[node name="SimpleAgent" parent="." instance=ExtResource("6_gud70")]
-
 [node name="TruckOvergrown" parent="." instance=ExtResource("2_gk8w0")]
 position = Vector2(-104, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("7_sh84e")
+
+[node name="Zombie" parent="." instance=ExtResource("6_gud70")]
+position = Vector2(48, -16)

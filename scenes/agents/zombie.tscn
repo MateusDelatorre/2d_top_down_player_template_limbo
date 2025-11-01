@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://blmku5gik12d4"]
+[gd_scene load_steps=41 format=3 uid="uid://blmku5gik12d4"]
 
 [ext_resource type="Script" uid="uid://6vba72d1t572" path="res://scripts/agents/enemies/simple_agent.gd" id="1_q2m0c"]
 [ext_resource type="Texture2D" uid="uid://crqiyglpot4pg" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Down_Idle-Sheet6.png" id="2_pjps8"]
+[ext_resource type="Script" uid="uid://dwkwoo6mt6agl" path="res://resources/agents/enemies/zombie/zombie_data.gd" id="2_q2m0c"]
 [ext_resource type="Script" uid="uid://dcunpb1ls3rt4" path="res://scripts/agents/components/health.gd" id="3_rrsmc"]
 [ext_resource type="Script" uid="uid://b68rgqnpr5wsi" path="res://scripts/agents/components/hitbox.gd" id="4_cg55q"]
 [ext_resource type="Script" uid="uid://b6tdhy3w7qg04" path="res://scripts/agents/components/hurtbox.gd" id="5_ujaj4"]
@@ -17,8 +18,14 @@
 [ext_resource type="Texture2D" uid="uid://8h2edpfvyjq7" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Down_walk-Sheet6.png" id="15_7jpb3"]
 [ext_resource type="Texture2D" uid="uid://bp7boboiai8rs" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side-left_Walk-Sheet6.png" id="16_46vnc"]
 [ext_resource type="Texture2D" uid="uid://d08kdlu726iss" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side_Walk-Sheet6.png" id="17_k4vr6"]
-[ext_resource type="BehaviorTree" uid="uid://dyovn255qf4tp" path="res://ai/trees/simple_agent.tres" id="18_q58aq"]
 [ext_resource type="Script" uid="uid://c6wbdgmvb4pgd" path="res://scripts/agents/enemies/zombie/state_machine.gd" id="19_c0kyo"]
+
+[sub_resource type="Resource" id="Resource_pjps8"]
+script = ExtResource("2_q2m0c")
+speed = 100.0
+vision_range = 100
+hearing_range = 100
+metadata/_custom_type_script = "uid://dwkwoo6mt6agl"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0wms"]
 size = Vector2(8, 12)
@@ -670,12 +677,13 @@ _data = {
 &"run_up": SubResource("Animation_8slo3")
 }
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_fhibg"]
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_5jk0g"]
 
 [node name="Zombie" type="CharacterBody2D"]
 motion_mode = 1
 wall_min_slide_angle = 0.174533
 script = ExtResource("1_q2m0c")
+zombie_data = SubResource("Resource_pjps8")
 metadata/_custom_type_script = "uid://covhldhl5j6mo"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -717,8 +725,9 @@ libraries = {
 }
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
-behavior_tree = ExtResource("18_q58aq")
-blackboard_plan = SubResource("BlackboardPlan_fhibg")
+blackboard_plan = SubResource("BlackboardPlan_5jk0g")
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
 script = ExtResource("19_c0kyo")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
