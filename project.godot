@@ -21,16 +21,15 @@ GameData="*res://scripts/game_data.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/stretch/mode="canvas_items"
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/scale_mode="integer"
 window/snap/snap_2d_vertices_to_pixel=true
 window/snap/snap_2d_transforms_to_pixel=true
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/vision2d/plugin.cfg", "res://addons/vision_cone_2d/plugin.cfg")
 
 [physics]
 

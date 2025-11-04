@@ -1,8 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://blmku5gik12d4"]
+[gd_scene load_steps=42 format=3 uid="uid://blmku5gik12d4"]
 
-[ext_resource type="Script" uid="uid://6vba72d1t572" path="res://scripts/agents/enemies/simple_agent.gd" id="1_q2m0c"]
+[ext_resource type="Script" uid="uid://6vba72d1t572" path="res://scripts/agents/enemies/zombie/zombie.gd" id="1_q2m0c"]
 [ext_resource type="Texture2D" uid="uid://crqiyglpot4pg" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Down_Idle-Sheet6.png" id="2_pjps8"]
-[ext_resource type="Script" uid="uid://dwkwoo6mt6agl" path="res://resources/agents/enemies/zombie/zombie_data.gd" id="2_q2m0c"]
+[ext_resource type="Script" uid="uid://dwkwoo6mt6agl" path="res://scripts/agents/enemies/zombie/zombie_data.gd" id="2_q2m0c"]
 [ext_resource type="Script" uid="uid://dcunpb1ls3rt4" path="res://scripts/agents/components/health.gd" id="3_rrsmc"]
 [ext_resource type="Script" uid="uid://b68rgqnpr5wsi" path="res://scripts/agents/components/hitbox.gd" id="4_cg55q"]
 [ext_resource type="Script" uid="uid://b6tdhy3w7qg04" path="res://scripts/agents/components/hurtbox.gd" id="5_ujaj4"]
@@ -18,14 +18,16 @@
 [ext_resource type="Texture2D" uid="uid://8h2edpfvyjq7" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Down_walk-Sheet6.png" id="15_7jpb3"]
 [ext_resource type="Texture2D" uid="uid://bp7boboiai8rs" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side-left_Walk-Sheet6.png" id="16_46vnc"]
 [ext_resource type="Texture2D" uid="uid://d08kdlu726iss" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side_Walk-Sheet6.png" id="17_k4vr6"]
-[ext_resource type="Script" uid="uid://c6wbdgmvb4pgd" path="res://scripts/agents/enemies/zombie/state_machine.gd" id="19_c0kyo"]
 
-[sub_resource type="Resource" id="Resource_pjps8"]
+[sub_resource type="Resource" id="Resource_q2m0c"]
 script = ExtResource("2_q2m0c")
 speed = 100.0
 vision_range = 100
 hearing_range = 100
 metadata/_custom_type_script = "uid://dwkwoo6mt6agl"
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q2m0c"]
+light_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0wms"]
 size = Vector2(8, 12)
@@ -679,14 +681,20 @@ _data = {
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_5jk0g"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pjps8"]
+radius = 100.0
+
 [node name="Zombie" type="CharacterBody2D"]
 motion_mode = 1
 wall_min_slide_angle = 0.174533
 script = ExtResource("1_q2m0c")
-zombie_data = SubResource("Resource_pjps8")
+zombie_data = SubResource("Resource_q2m0c")
 metadata/_custom_type_script = "uid://covhldhl5j6mo"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_q2m0c")
 texture = ExtResource("2_pjps8")
 hframes = 6
 
@@ -727,7 +735,17 @@ libraries = {
 [node name="BTPlayer" type="BTPlayer" parent="."]
 blackboard_plan = SubResource("BlackboardPlan_5jk0g")
 
-[node name="LimboHSM" type="LimboHSM" parent="."]
-script = ExtResource("19_c0kyo")
+[node name="DetectionRange" type="Area2D" parent="."]
+input_pickable = false
+monitorable = false
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
+visible = false
+shape = SubResource("CircleShape2D_pjps8")
+debug_color = Color(0.89443, 0.233826, 0.554476, 0.42)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionRange"]
+polygon = PackedVector2Array(0, 0, 16, -64, 104, -64, 104, 0, 104, 64, 16, 64)
+disabled = true
+
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]

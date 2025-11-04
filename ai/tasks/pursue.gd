@@ -16,7 +16,7 @@ extends BTAction
 ## Returns [code]FAILURE[/code] if the target is not a valid [Node2D] instance. [br]
 
 ## How close should the agent be to the desired position to return SUCCESS.
-const TOLERANCE := 30.0
+@export var tolerance : float
 
 ## Blackboard variable that stores our target (expecting Node2D).
 @export var target_var: StringName = &"target"
@@ -42,6 +42,8 @@ func _enter() -> void:
 		# Movement is performed in smaller steps.
 		# For each step, we select a new waypoint.
 		_select_new_waypoint(_get_desired_position(target))
+	else:
+		print("instance not valid")
 
 
 # Called each time this task is ticked (aka executed).
@@ -51,10 +53,10 @@ func _tick(_delta: float) -> Status:
 		return FAILURE
 
 	var desired_pos: Vector2 = _get_desired_position(target)
-	if agent.global_position.distance_to(desired_pos) < TOLERANCE:
+	if agent.global_position.distance_to(desired_pos) < tolerance:
 		return SUCCESS
 
-	if agent.global_position.distance_to(_waypoint) < TOLERANCE:
+	if agent.global_position.distance_to(_waypoint) < tolerance:
 		_select_new_waypoint(desired_pos)
 
 	var speed: float = blackboard.get_var(speed_var, 200.0)

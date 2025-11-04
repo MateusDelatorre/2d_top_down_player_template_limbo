@@ -19,7 +19,7 @@ func _enter() -> void:
 	player.weapon_manager.current_weapon.animation_player.play(animation_name + "_" + player.facing_dir)
 	
 func move() -> Vector2:
-	var direction : Vector2 = blackboard.get_var(BBNames.direction)
+	var direction : Vector2 = blackboard.get_var(BBNames.movement_direction)
 	
 	if not Vector2.ZERO.is_equal_approx(direction):
 		if player.face_dir(direction):

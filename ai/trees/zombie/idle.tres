@@ -1,0 +1,47 @@
+[gd_resource type="BehaviorTree" load_steps=13 format=3 uid="uid://bysojfc2kawpr"]
+
+[ext_resource type="Script" uid="uid://blpysfotbub7h" path="res://ai/tasks/can_see_player.gd" id="1_lwdj4"]
+[ext_resource type="Script" uid="uid://wbn3owye4rqs" path="res://ai/tasks/pursue.gd" id="2_274a4"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_qtrbs"]
+
+[sub_resource type="BTCondition" id="BTCondition_274a4"]
+script = ExtResource("1_lwdj4")
+target_var = &"player"
+vision_var = &"vision_range"
+
+[sub_resource type="BBNode" id="BBNode_lwdj4"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_274a4"]
+animation_player = SubResource("BBNode_lwdj4")
+animation_name = &"run_down"
+
+[sub_resource type="BTAction" id="BTAction_0lg0k"]
+script = ExtResource("2_274a4")
+tolerance = 17.0
+target_var = &"player"
+speed_var = &"speed"
+approach_distance = 17.0
+
+[sub_resource type="BTDynamicSequence" id="BTDynamicSequence_0lg0k"]
+children = [SubResource("BTCondition_274a4"), SubResource("BTPlayAnimation_274a4"), SubResource("BTAction_0lg0k")]
+
+[sub_resource type="BBNode" id="BBNode_274a4"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_0lg0k"]
+animation_player = SubResource("BBNode_274a4")
+animation_name = &"idle_down"
+
+[sub_resource type="BTSequence" id="BTSequence_prxha"]
+children = [SubResource("BTPlayAnimation_0lg0k")]
+
+[sub_resource type="BTDynamicSelector" id="BTDynamicSelector_274a4"]
+children = [SubResource("BTDynamicSequence_0lg0k"), SubResource("BTSequence_prxha")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_qtrbs")
+root_task = SubResource("BTDynamicSelector_274a4")

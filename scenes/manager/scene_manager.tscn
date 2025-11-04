@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bx5x3qxxryknl"]
+[gd_scene load_steps=5 format=3 uid="uid://bx5x3qxxryknl"]
 
 [ext_resource type="Script" uid="uid://cfx0slrw22pic" path="res://scripts/scene_manager.gd" id="1_7knpr"]
 [ext_resource type="PackedScene" uid="uid://c58h706skbnsp" path="res://scenes/debug/debug_map.tscn" id="1_7lmbi"]
+[ext_resource type="Script" uid="uid://cj1ui3qq8flw1" path="res://scenes/manager/sub_viewport_container.gd" id="2_4gkph"]
 [ext_resource type="PackedScene" uid="uid://wroy8m6rvdol" path="res://scenes/user_interfaces/player_interface.tscn" id="3_a43uu"]
 
 [node name="SceneManager" type="Node2D"]
@@ -16,7 +17,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-stretch_shrink = 6
+stretch_shrink = 4
+mouse_target = true
+script = ExtResource("2_4gkph")
 
 [node name="PlayerBus" type="Node" parent="CanvasLayer/SubViewportContainer"]
 

@@ -5,8 +5,8 @@ extends AgentBase
 var current_state : PlayerState
 @onready var state_machine : LimboHSM
 @onready var weapon_manager : WeaponManager
-
-
+@onready var camera : Camera2D
+@onready var fov_mask : PointLight2D
 
 func _ready() -> void:
 	super._ready()
@@ -22,10 +22,27 @@ func _ready() -> void:
 		weapon_manager = get_children().filter(
 			func(child): return child is WeaponManager
 		).front()
+	if not camera:
+		camera = get_children().filter(
+			func(child): return child is Camera2D
+		).front()
+	if not fov_mask:
+		fov_mask = get_children().filter(
+			func(child): return child is PointLight2D
+		).front()
 	await owner.ready
 
 func _process(delta):
 	pass
+	
+
+func scope_zoom():
+	var mouse_pos : Vector2 = get_viewport().get_mouse_position()
+	print(mouse_pos)
+	if mouse_pos.x > mouse_pos.x/2:
+		camera.position.x = mouse_pos.x/2
+	else:
+		camera.position.x = abs(mouse_pos.x)/2
 
 func _physics_process(delta):
 	pass

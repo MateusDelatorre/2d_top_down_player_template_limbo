@@ -21,6 +21,7 @@ animation_name = &"idle_down"
 
 [sub_resource type="BTAction" id="BTAction_4t0xp"]
 script = ExtResource("2_aqyph")
+tolerance = 0.0
 target_var = &"target"
 speed_var = &"speed"
 approach_distance = 0.0

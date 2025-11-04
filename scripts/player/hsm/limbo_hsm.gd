@@ -16,7 +16,7 @@ func _ready():
 	_binging_setup()
 
 func _create_blackboard_names() -> void:
-	blackboard.set_var(BBNames.direction, Vector2.ZERO)
+	blackboard.set_var(BBNames.movement_direction, Vector2.ZERO)
 
 func _binging_setup():
 	add_transition(states["idle"], states["move"], "moving")
