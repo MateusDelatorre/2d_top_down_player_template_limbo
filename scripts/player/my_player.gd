@@ -34,7 +34,6 @@ func _ready() -> void:
 
 func _process(delta):
 	pass
-	
 
 func scope_zoom():
 	var mouse_pos : Vector2 = get_viewport().get_mouse_position()

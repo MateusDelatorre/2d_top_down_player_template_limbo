@@ -1,4 +1,5 @@
 extends LimboHSM
+class_name PlayerHSM
 
 @export var player : MyPlayer
 @export var states : Dictionary[String, LimboState]

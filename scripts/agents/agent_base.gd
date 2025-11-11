@@ -127,6 +127,8 @@ func die() -> void:
 	if _is_dead:
 		return
 	death.emit()
+	animation_player.play("death"+"_"+facing_dir)
+	visible = false
 	_is_dead = true
 	process_mode = Node.PROCESS_MODE_DISABLED
 	collision_shape_2d.set_deferred(&"disabled", true)
@@ -134,7 +136,6 @@ func die() -> void:
 	for child in get_children():
 		if child is BTPlayer or child is LimboHSM:
 			child.set_active(false)
-	animation_player.play("death"+"_"+facing_dir)
 	if get_tree():
 		await get_tree().create_timer(10.0).timeout
 		queue_free()
@@ -142,3 +143,6 @@ func die() -> void:
 
 func get_health() -> Health:
 	return health
+
+func is_alive() -> bool:
+	return not _is_dead
