@@ -27,6 +27,7 @@ position = Vector2(48, 24)
 position = Vector2(-104, 0)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.366594, 0.366595, 0.366594, 1)
 
 [node name="Enemies" type="Node2D" parent="."]
