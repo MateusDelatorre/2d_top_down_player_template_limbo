@@ -5,6 +5,7 @@ extends AgentBase
 @onready var player : MyPlayer
 @onready var field_of_view : Area2D
 @onready var current_behavior : Callable = func(delta): pass
+@onready var zombie_hsm : LimboHSM
 
 var speed : int
 var stimulus_direction : Vector2
@@ -38,6 +39,10 @@ func init_nodes():
 		animation_player = get_children().filter(
 			func(child): return child is AnimationPlayer
 		).front()
+	if not zombie_hsm:
+		animation_player = get_children().filter(
+			func(child): return child is LimboHSM
+		).front()
 
 func load_data():
 	speed = zombie_data.speed
@@ -66,7 +71,8 @@ func set_blackboard_variables():
 func tree(_delta):
 	if _on_vision_range:
 		if ray_vision():
-			chase_target(_delta)
+			if position.distance_to(player.position) < 10:
+				zombie_hsm.dispatch("attack")
 	else:
 		if zombie_data.has_stimulus:
 			chase_stimulus(_delta)

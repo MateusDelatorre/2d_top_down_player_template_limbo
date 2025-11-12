@@ -1,8 +1,9 @@
-[gd_scene load_steps=47 format=3 uid="uid://blmku5gik12d4"]
+[gd_scene load_steps=49 format=3 uid="uid://blmku5gik12d4"]
 
 [ext_resource type="Script" uid="uid://6vba72d1t572" path="res://scripts/agents/enemies/zombie/zombie.gd" id="1_q2m0c"]
 [ext_resource type="Texture2D" uid="uid://crqiyglpot4pg" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Down_Idle-Sheet6.png" id="2_pjps8"]
 [ext_resource type="Script" uid="uid://dwkwoo6mt6agl" path="res://scripts/agents/enemies/zombie/zombie_data.gd" id="2_q2m0c"]
+[ext_resource type="Script" uid="uid://butd8m76acv1f" path="res://scripts/agents/agent_data.gd" id="3_436w8"]
 [ext_resource type="Script" uid="uid://dcunpb1ls3rt4" path="res://scripts/agents/components/health.gd" id="3_rrsmc"]
 [ext_resource type="Script" uid="uid://b68rgqnpr5wsi" path="res://scripts/agents/components/hitbox.gd" id="4_cg55q"]
 [ext_resource type="Script" uid="uid://b6tdhy3w7qg04" path="res://scripts/agents/components/hurtbox.gd" id="5_ujaj4"]
@@ -30,6 +31,11 @@ speed = 100.0
 vision_range = 100
 hearing_range = 100
 metadata/_custom_type_script = "uid://dwkwoo6mt6agl"
+
+[sub_resource type="Resource" id="Resource_ywt4i"]
+script = ExtResource("3_436w8")
+health = 10.0
+metadata/_custom_type_script = "uid://butd8m76acv1f"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0wms"]
 size = Vector2(8, 12)
@@ -688,7 +694,6 @@ size = Vector2(300, 200)
 size = Vector2(136, 168)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q2m0c"]
-light_mode = 2
 
 [node name="Zombie" type="CharacterBody2D"]
 collision_layer = 4
@@ -697,6 +702,7 @@ motion_mode = 1
 wall_min_slide_angle = 0.174533
 script = ExtResource("1_q2m0c")
 zombie_data = SubResource("Resource_q2m0c")
+agent_data = SubResource("Resource_ywt4i")
 metadata/_custom_type_script = "uid://covhldhl5j6mo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -710,17 +716,19 @@ max_health = 1.0
 metadata/_custom_type_script = "uid://dcunpb1ls3rt4"
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(12, 0)
 collision_layer = 64
-collision_mask = 160
+collision_mask = 128
 monitorable = false
 script = ExtResource("4_cg55q")
 metadata/_custom_type_script = "uid://b68rgqnpr5wsi"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0.5, -0.5)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_j08gw")
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+visible = false
 collision_layer = 128
 collision_mask = 0
 monitoring = false
@@ -738,6 +746,7 @@ libraries = {
 }
 
 [node name="DetectionRange" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 input_pickable = false
 monitorable = false
@@ -747,6 +756,7 @@ shape = SubResource("RectangleShape2D_q2m0c")
 debug_color = Color(0.89443, 0.233826, 0.554476, 0.42)
 
 [node name="FieldOfView" type="Area2D" parent="."]
+visible = false
 light_mask = 0
 collision_layer = 2
 
