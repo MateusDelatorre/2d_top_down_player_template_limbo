@@ -13,9 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://co5g0e8m3a77s" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Up_First-Attack-Sheet4.png" id="9_wjpop"]
 [ext_resource type="Texture2D" uid="uid://cj574l8bjk8n4" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side-left_Second-Death-Sheet7.png" id="10_h1jri"]
 [ext_resource type="Texture2D" uid="uid://dqifybdlrxgxd" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side_Second-Death-Sheet7.png" id="11_vtjfw"]
-[ext_resource type="Texture2D" uid="uid://c4ld3h5l4pkju" path="res://assets/Post-Apocalypse Pixel Art/Character/Main/Idle/Hands_Side-left_idle-Sheet6.png" id="12_8p7ea"]
 [ext_resource type="Texture2D" uid="uid://cjv3cxb7nsqef" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side_Idle-Sheet6.png" id="13_7f3nr"]
 [ext_resource type="Texture2D" uid="uid://cg4yfkrhpydd1" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Up_Idle-Sheet6.png" id="14_8bafk"]
+[ext_resource type="Texture2D" uid="uid://baqbk1iv54jdg" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side-left_Idle-Sheet6.png" id="14_436w8"]
 [ext_resource type="Texture2D" uid="uid://8h2edpfvyjq7" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Down_walk-Sheet6.png" id="15_7jpb3"]
 [ext_resource type="Texture2D" uid="uid://bp7boboiai8rs" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side-left_Walk-Sheet6.png" id="16_46vnc"]
 [ext_resource type="Texture2D" uid="uid://d08kdlu726iss" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Side_Walk-Sheet6.png" id="17_k4vr6"]
@@ -41,7 +41,7 @@ metadata/_custom_type_script = "uid://butd8m76acv1f"
 size = Vector2(8, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j08gw"]
-size = Vector2(11, 15)
+size = Vector2(11, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvxh5"]
 size = Vector2(12, 15)
@@ -389,7 +389,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("12_8p7ea")]
+"values": [ExtResource("14_436w8")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -697,7 +697,7 @@ size = Vector2(136, 168)
 
 [node name="Zombie" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 37
+collision_mask = 53
 motion_mode = 1
 wall_min_slide_angle = 0.174533
 script = ExtResource("1_q2m0c")
@@ -716,22 +716,20 @@ max_health = 1.0
 metadata/_custom_type_script = "uid://dcunpb1ls3rt4"
 
 [node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(12, 0)
+visible = false
 collision_layer = 64
 collision_mask = 128
-monitorable = false
 script = ExtResource("4_cg55q")
 metadata/_custom_type_script = "uid://b68rgqnpr5wsi"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-1, 0)
+position = Vector2(10, 0)
 shape = SubResource("RectangleShape2D_j08gw")
+disabled = true
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
-visible = false
 collision_layer = 128
 collision_mask = 0
-monitoring = false
 script = ExtResource("5_ujaj4")
 health = NodePath("../Health")
 metadata/_custom_type_script = "uid://b6tdhy3w7qg04"
@@ -756,7 +754,6 @@ shape = SubResource("RectangleShape2D_q2m0c")
 debug_color = Color(0.89443, 0.233826, 0.554476, 0.42)
 
 [node name="FieldOfView" type="Area2D" parent="."]
-visible = false
 light_mask = 0
 collision_layer = 2
 
@@ -774,17 +771,21 @@ states = {
 "move": NodePath("Move")
 }
 
-[node name="Move" type="LimboState" parent="LimboHSM"]
-script = ExtResource("20_ujaj4")
-
 [node name="Idle" type="LimboState" parent="LimboHSM"]
 script = ExtResource("21_436w8")
+animation_name = &"idle"
+
+[node name="Move" type="LimboState" parent="LimboHSM"]
+script = ExtResource("20_ujaj4")
+animation_name = &"run"
 
 [node name="Die" type="LimboState" parent="LimboHSM"]
 script = ExtResource("22_ywt4i")
+animation_name = &"die"
 
 [node name="Attack" type="LimboState" parent="LimboHSM"]
 script = ExtResource("23_6f8of")
+animation_name = &"attack"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 2
@@ -793,6 +794,11 @@ material = SubResource("CanvasItemMaterial_q2m0c")
 texture = ExtResource("2_pjps8")
 hframes = 6
 
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="LimboHSM/Attack" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
 [connection signal="body_entered" from="FieldOfView" to="." method="_on_field_of_view_body_entered"]

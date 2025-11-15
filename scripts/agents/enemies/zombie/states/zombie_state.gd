@@ -1,12 +1,19 @@
 extends LimboState
 class_name ZombieState
 
+@onready var zombie : Zombie
+@export var animation_name : StringName
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	if not agent:
+		await owner.ready
+		zombie = agent
 
+func _enter() -> void:
+	zombie.animation_player.play(animation_name + "_" + zombie.facing_dir)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func change_animation() -> void:
+	zombie.animation_player.play(animation_name + "_" + zombie.facing_dir)
+	
+func get_current_animation() -> StringName:
+	return animation_name + "_" + zombie.facing_dir

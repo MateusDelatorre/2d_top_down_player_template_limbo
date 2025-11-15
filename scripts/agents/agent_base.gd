@@ -25,7 +25,7 @@ var _moved_this_frame: bool = false
 @onready var health: Health = $Health
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
-var facing_dir : StringName
+var facing_dir : StringName = "right"
 
 
 func _ready() -> void:
@@ -148,3 +148,6 @@ func get_health() -> Health:
 
 func is_alive() -> bool:
 	return not _is_dead
+
+func my_pass(delta):
+	pass
