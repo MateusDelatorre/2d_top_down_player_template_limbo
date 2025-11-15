@@ -781,7 +781,7 @@ animation_name = &"run"
 
 [node name="Die" type="LimboState" parent="LimboHSM"]
 script = ExtResource("22_ywt4i")
-animation_name = &"die"
+animation_name = &"death"
 
 [node name="Attack" type="LimboState" parent="LimboHSM"]
 script = ExtResource("23_6f8of")

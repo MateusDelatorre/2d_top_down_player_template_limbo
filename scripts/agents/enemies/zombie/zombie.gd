@@ -143,8 +143,21 @@ func _on_attack_cooldown_timeout():
 func hear_target() -> bool:
 	return true
 
-func die():
-	pass
+func die() -> void:
+	zombie_hsm.dispatch("died")
+	current_behavior = Callable(self, "my_pass")
+
+func remove() -> void:
+	visible = false
+	process_mode = Node.PROCESS_MODE_DISABLED
+	collision_shape_2d.set_deferred(&"disabled", true)
+
+	for child in get_children():
+		if child is BTPlayer or child is LimboHSM:
+			child.set_active(false)
+	if get_tree():
+		await get_tree().create_timer(10.0).timeout
+		queue_free()
 #endregion
 
 #region config
