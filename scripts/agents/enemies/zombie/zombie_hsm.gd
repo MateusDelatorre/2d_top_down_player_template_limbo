@@ -4,6 +4,12 @@ class_name ZombieSM
 @export var zombie : AgentBase
 @export var states : Dictionary[String, LimboState]
 
+var moving : StringName = "moving"
+var stopped : StringName = "stopped"
+var attack_cooldown : StringName = "attack_cooldown"
+var attack : StringName = "attack"
+var died : StringName = "died"
+
 func _enter_tree():
 	if not zombie:
 		if not search_tree(self):
@@ -22,6 +28,7 @@ func _create_blackboard_names() -> void:
 func _binging_setup():
 	add_transition(states["idle"], states["move"], "moving")
 	add_transition(states["move"], states["idle"], "stopped")
+	add_transition(states["attack"], states["idle"], "attack_cooldown")
 	add_transition(ANYSTATE, states["attack"], "attack", Callable(zombie, "is_alive"))
 	add_transition(ANYSTATE, states["die"], "died", Callable(zombie, "is_alive"))
 	

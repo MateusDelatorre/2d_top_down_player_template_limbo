@@ -16,7 +16,6 @@ func _ready() -> void:
 
 func _enter() -> void:
 	player.animation_player.play(animation_name + "_" + player.facing_dir)
-	player.weapon_manager.current_weapon.animation_player.play(animation_name + "_" + player.facing_dir)
 	
 func move() -> Vector2:
 	var direction : Vector2 = blackboard.get_var(BBNames.movement_direction)

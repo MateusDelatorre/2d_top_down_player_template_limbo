@@ -1,6 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://cqy42pxxaku50"]
+[gd_scene load_steps=37 format=3 uid="uid://cqy42pxxaku50"]
 
 [ext_resource type="Script" uid="uid://d2aa3j4xq6ibo" path="res://scripts/player/my_player.gd" id="1_8ydkj"]
+[ext_resource type="Script" uid="uid://butd8m76acv1f" path="res://scripts/agents/agent_data.gd" id="2_3j4b4"]
 [ext_resource type="Script" uid="uid://b85hbvo5345m1" path="res://scripts/player/hsm/player_hsm.gd" id="2_dovo2"]
 [ext_resource type="Texture2D" uid="uid://0y6trgyh7pmi" path="res://assets/Post-Apocalypse Pixel Art/Character/Main/Idle/Character_down_idle_no-hands-Sheet6.png" id="3_h17s1"]
 [ext_resource type="Script" uid="uid://cqxmltjess86w" path="res://scripts/player/states/idle_state.gd" id="3_lvxji"]
@@ -19,8 +20,12 @@
 [ext_resource type="Texture2D" uid="uid://d1usfb5d68252" path="res://assets/Post-Apocalypse Pixel Art/Character/Main/Run/Character_up_run_no-hands-Sheet6.png" id="10_kvlxm"]
 [ext_resource type="Texture2D" uid="uid://cmlfvmtowvdcx" path="res://assets/Post-Apocalypse Pixel Art/Character/Main/Death/Character_side-left_death1_NoHands-Sheet6.png" id="11_uf5tr"]
 [ext_resource type="Texture2D" uid="uid://4ydhh3uouebt" path="res://assets/Post-Apocalypse Pixel Art/Character/Main/Death/Character_side_death1_NoHands-Sheet6.png" id="12_lgqa7"]
-[ext_resource type="InventoryDatabase" uid="uid://dxf8won8ig3b7" path="res://resources/inventory/database.tres" id="20_8ydkj"]
 [ext_resource type="Texture2D" uid="uid://bqxqeegkgnpkk" path="res://assets/fov_165.png" id="21_3j4b4"]
+
+[sub_resource type="Resource" id="Resource_yj68g"]
+script = ExtResource("2_3j4b4")
+health = 20.0
+metadata/_custom_type_script = "uid://butd8m76acv1f"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h17s1"]
 size = Vector2(10, 15)
@@ -508,6 +513,7 @@ collision_mask = 61
 motion_mode = 1
 wall_min_slide_angle = 0.174533
 script = ExtResource("1_8ydkj")
+agent_data = SubResource("Resource_yj68g")
 metadata/_custom_type_script = "uid://d2aa3j4xq6ibo"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -594,10 +600,10 @@ libraries = {
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("8_5gtgg")
+max_health = 1.0
 metadata/_custom_type_script = "uid://dcunpb1ls3rt4"
 
 [node name="Inventory" type="Inventory" parent="."]
-database = ExtResource("20_8ydkj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

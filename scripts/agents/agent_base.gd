@@ -19,6 +19,8 @@ var _frames_since_facing_update: int = 0
 var _is_dead: bool = false
 var _moved_this_frame: bool = false
 
+@export var agent_data : AgentData
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var health: Health = $Health
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -146,3 +148,6 @@ func get_health() -> Health:
 
 func is_alive() -> bool:
 	return not _is_dead
+
+func my_pass(delta):
+	pass

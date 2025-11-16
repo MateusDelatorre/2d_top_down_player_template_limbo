@@ -8,9 +8,8 @@ func _enter_tree() -> void:
 	parent = get_parent()
 
 func _ready() -> void:
-	super()
 	connect("body_entered", Callable(self, "_on_body_entered"))
-	connect("area_entered", Callable(self, "_area_entered"))
+	area_entered.connect(_area_entered)
 			
 func _area_entered(hurtbox: Hurtbox) -> void:
 	super(hurtbox)
