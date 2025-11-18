@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cqy42pxxaku50"]
+[gd_scene load_steps=38 format=3 uid="uid://cqy42pxxaku50"]
 
 [ext_resource type="Script" uid="uid://d2aa3j4xq6ibo" path="res://scripts/player/my_player.gd" id="1_8ydkj"]
 [ext_resource type="Script" uid="uid://butd8m76acv1f" path="res://scripts/agents/agent_data.gd" id="2_3j4b4"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cmlfvmtowvdcx" path="res://assets/Post-Apocalypse Pixel Art/Character/Main/Death/Character_side-left_death1_NoHands-Sheet6.png" id="11_uf5tr"]
 [ext_resource type="Texture2D" uid="uid://4ydhh3uouebt" path="res://assets/Post-Apocalypse Pixel Art/Character/Main/Death/Character_side_death1_NoHands-Sheet6.png" id="12_lgqa7"]
 [ext_resource type="Texture2D" uid="uid://bqxqeegkgnpkk" path="res://assets/fov_165.png" id="21_3j4b4"]
+[ext_resource type="Script" uid="uid://bant3306aoxu0" path="res://scenes/player/unpause.gd" id="22_yj68g"]
 
 [sub_resource type="Resource" id="Resource_yj68g"]
 script = ExtResource("2_3j4b4")
@@ -589,6 +590,7 @@ shape = SubResource("RectangleShape2D_p47bc")
 script = ExtResource("6_75vfm")
 
 [node name="PlayerInput" type="Node" parent="." node_paths=PackedStringArray("limbo_hsm")]
+process_mode = 3
 script = ExtResource("7_qek5x")
 limbo_hsm = NodePath("../LimboHSM")
 metadata/_custom_type_script = "uid://cap07a658pfnw"
@@ -613,3 +615,7 @@ range_item_cull_mask = 3
 shadow_enabled = true
 texture = ExtResource("21_3j4b4")
 offset = Vector2(1237, 0)
+
+[node name="unpause" type="Node" parent="."]
+process_mode = 2
+script = ExtResource("22_yj68g")

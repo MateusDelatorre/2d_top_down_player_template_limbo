@@ -23,7 +23,7 @@ script = ExtResource("2_4gkph")
 
 [node name="PlayerBus" type="Node" parent="CanvasLayer/SubViewportContainer"]
 
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+[node name="GameHolder" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 unique_name_in_owner = true
 disable_3d = true
 handle_input_locally = false
@@ -33,7 +33,7 @@ canvas_item_default_texture_filter = 0
 size = Vector2i(320, 180)
 render_target_update_mode = 4
 
-[node name="DebugMap" parent="CanvasLayer/SubViewportContainer/SubViewport" instance=ExtResource("1_7lmbi")]
+[node name="DebugMap" parent="CanvasLayer/SubViewportContainer/GameHolder" instance=ExtResource("1_7lmbi")]
 
 [node name="UIManager" type="Node2D" parent="CanvasLayer/SubViewportContainer"]
 unique_name_in_owner = true

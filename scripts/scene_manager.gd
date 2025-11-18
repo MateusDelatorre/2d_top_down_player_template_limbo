@@ -4,5 +4,5 @@ extends Node2D
 @onready var interface_holder : Node2D
 
 func _ready() -> void:
-	game_holder = %SubViewport
+	game_holder = %GameHolder
 	interface_holder = %UIManager

@@ -10,8 +10,8 @@ func _ready() -> void:
 	ctrl_inventory_right.request_split.connect(_request_split)
 	ctrl_inventory_left.request_transfer_to.connect(_request_transfer_to)
 	ctrl_inventory_right.request_transfer_to.connect(_request_transfer_to)
-	ctrl_inventory_left.request_sort.connect(_on_inventory_sort.bind(ctrl_inventory_left.inventory))
-	ctrl_inventory_right.request_sort.connect(_on_inventory_sort.bind(ctrl_inventory_right.inventory))
+	#ctrl_inventory_left.request_sort.connect(_on_inventory_sort.bind(ctrl_inventory_left.inventory))
+	#ctrl_inventory_right.request_sort.connect(_on_inventory_sort.bind(ctrl_inventory_right.inventory))
 	
 	await get_tree().create_timer(0.2).timeout
 	

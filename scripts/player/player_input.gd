@@ -25,6 +25,19 @@ func _process(delta):
 	input_direction = Input.get_vector(
 		player_action.move_left, player_action.move_right, 
 		player_action.move_up, player_action.move_down)
+	if Input.is_action_just_pressed(player_action.pause):
+		print("Game paused: ", get_tree().paused)
+		get_tree().paused = not get_tree().paused
+		get_viewport().set_input_as_handled()
+
+func _input(event: InputEvent) -> void:
+	return
+	if event is InputEventKey:
+		print(event)
+		if event.is_action_pressed(player_action.pause):
+			print("Game paused: ", get_tree().paused)
+			get_tree().paused = not get_tree().paused
+			get_viewport().set_input_as_handled()
 
 func _unhandled_input(event: InputEvent) -> void:
 	_equipament(event)
