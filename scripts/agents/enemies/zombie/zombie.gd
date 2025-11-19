@@ -35,6 +35,7 @@ func _ready() -> void:
 func init_nodes():
 	if not player:
 		player = get_tree().get_first_node_in_group("player")
+		print(get_tree().get_first_node_in_group("player"))
 	if not field_of_view:
 		field_of_view = get_children().filter(
 			func(child : Node): return child is Area2D and child.name.begins_with("F")

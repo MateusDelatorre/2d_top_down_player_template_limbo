@@ -1,12 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://bx5x3qxxryknl"]
 
 [ext_resource type="Script" uid="uid://cfx0slrw22pic" path="res://scripts/scene_manager.gd" id="1_7knpr"]
-[ext_resource type="PackedScene" uid="uid://c58h706skbnsp" path="res://scenes/debug/debug_map.tscn" id="1_7lmbi"]
 [ext_resource type="Script" uid="uid://cj1ui3qq8flw1" path="res://scenes/manager/sub_viewport_container.gd" id="2_4gkph"]
+[ext_resource type="Script" uid="uid://def8u3q1ncqmv" path="res://scripts/bus/player_bus.gd" id="2_qh4xu"]
 [ext_resource type="PackedScene" uid="uid://wroy8m6rvdol" path="res://scenes/user_interfaces/player_interface.tscn" id="3_a43uu"]
 
 [node name="SceneManager" type="Node2D"]
 script = ExtResource("1_7knpr")
+
+[node name="PlayerBus" type="Node" parent="."]
+script = ExtResource("2_qh4xu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -21,8 +24,6 @@ stretch_shrink = 4
 mouse_target = true
 script = ExtResource("2_4gkph")
 
-[node name="PlayerBus" type="Node" parent="CanvasLayer/SubViewportContainer"]
-
 [node name="GameHolder" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 unique_name_in_owner = true
 disable_3d = true
@@ -32,8 +33,6 @@ snap_2d_vertices_to_pixel = true
 canvas_item_default_texture_filter = 0
 size = Vector2i(320, 180)
 render_target_update_mode = 4
-
-[node name="DebugMap" parent="CanvasLayer/SubViewportContainer/GameHolder" instance=ExtResource("1_7lmbi")]
 
 [node name="UIManager" type="Node2D" parent="CanvasLayer/SubViewportContainer"]
 unique_name_in_owner = true

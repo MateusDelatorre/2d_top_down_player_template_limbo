@@ -8,6 +8,10 @@ var current_state : PlayerState
 @onready var camera : Camera2D
 @onready var fov_mask : PointLight2D
 
+func _enter_tree():
+	self.add_to_group("player")
+	print(self.get_groups())
+
 func _ready() -> void:
 	super._ready()
 	if not animation_player:
@@ -30,7 +34,6 @@ func _ready() -> void:
 		fov_mask = get_children().filter(
 			func(child): return child is PointLight2D
 		).front()
-	await owner.ready
 
 func _process(delta):
 	pass
