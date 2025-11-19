@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvfjc0ymttp65"]
+[gd_scene load_steps=7 format=3 uid="uid://bvfjc0ymttp65"]
 
 [ext_resource type="Script" uid="uid://bdougcrlak4uj" path="res://scenes/backpack.gd" id="1_460lo"]
 [ext_resource type="InventoryDatabase" uid="uid://dxf8won8ig3b7" path="res://resources/inventory/database.tres" id="1_q7lps"]
 [ext_resource type="Texture2D" uid="uid://crxtm2vwiens8" path="res://assets/bag_01.png" id="2_5gcru"]
+[ext_resource type="PackedScene" uid="uid://cxevor61mdhtc" path="res://addons/inventory-system-demos/ui/grid/grid_slot_ui.tscn" id="3_yov5u"]
+[ext_resource type="PackedScene" uid="uid://ch1ixmsfcaf5c" path="res://addons/inventory-system-demos/ui/grid/grid_item_stack_ui.tscn" id="4_owf8y"]
+[ext_resource type="Script" uid="uid://ctu3vfl53whl3" path="res://addons/inventory-system-demos/ui/grid/grid_inventory_ui.gd" id="5_fytde"]
 
 [node name="Backpack" type="Control"]
 layout_mode = 3
@@ -13,10 +16,62 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_460lo")
 
-[node name="GridInventory" type="GridInventory" parent="."]
-database = ExtResource("1_q7lps")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(617, 346)
 scale = Vector2(8, 8)
 texture = ExtResource("2_5gcru")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 243.0
+offset_right = 797.0
+offset_bottom = 501.0
+
+[node name="GridInventoryUI" type="Control" parent="ScrollContainer"]
+layout_mode = 2
+script = ExtResource("5_fytde")
+grid_slot_ui_scene = ExtResource("3_yov5u")
+grid_item_stack_ui_scene = ExtResource("4_owf8y")
+inventory_path = NodePath("../../MidleSlot")
+grid_slot_size = Vector2(64, 64)
+metadata/_custom_type_script = "uid://ctu3vfl53whl3"
+
+[node name="GridInventoryUI2" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 220.0
+offset_top = 168.0
+offset_right = 260.0
+offset_bottom = 208.0
+script = ExtResource("5_fytde")
+grid_slot_ui_scene = ExtResource("3_yov5u")
+grid_item_stack_ui_scene = ExtResource("4_owf8y")
+inventory_path = NodePath("../LeftSlot")
+grid_slot_size = Vector2(64, 64)
+metadata/_custom_type_script = "uid://ctu3vfl53whl3"
+
+[node name="GridInventoryUI3" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 901.0
+offset_top = 166.0
+offset_right = 941.0
+offset_bottom = 206.0
+script = ExtResource("5_fytde")
+grid_slot_ui_scene = ExtResource("3_yov5u")
+grid_item_stack_ui_scene = ExtResource("4_owf8y")
+inventory_path = NodePath("../RightSlot")
+grid_slot_size = Vector2(64, 64)
+metadata/_custom_type_script = "uid://ctu3vfl53whl3"
+
+[node name="MidleSlot" type="GridInventory" parent="."]
+database = ExtResource("1_q7lps")
+
+[node name="LeftSlot" type="GridInventory" parent="."]
+size = Vector2i(2, 6)
+database = ExtResource("1_q7lps")
+
+[node name="RightSlot" type="GridInventory" parent="."]
+size = Vector2i(2, 6)
+database = ExtResource("1_q7lps")
