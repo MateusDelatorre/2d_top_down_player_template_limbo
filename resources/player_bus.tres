@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://byuigyun86voa"]
+
+[ext_resource type="Script" uid="uid://def8u3q1ncqmv" path="res://scripts/bus/player_bus.gd" id="1_ejjq4"]
+
+[resource]
+script = ExtResource("1_ejjq4")
+metadata/_custom_type_script = "uid://def8u3q1ncqmv"

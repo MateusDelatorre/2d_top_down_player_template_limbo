@@ -7,10 +7,11 @@ var current_state : PlayerState
 @onready var weapon_manager : WeaponManager
 @onready var camera : Camera2D
 @onready var fov_mask : PointLight2D
+@export var player_bus : PlayerBus
 
 func _enter_tree():
 	self.add_to_group("player")
-	print(self.get_groups())
+	player_bus.player_entered_group.emit()
 
 func _ready() -> void:
 	super._ready()

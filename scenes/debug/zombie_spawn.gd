@@ -1,6 +1,5 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var scene_manager = get_tree().get_root().get_child(0)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://c58h706skbnsp"]
+[gd_scene load_steps=7 format=4 uid="uid://c58h706skbnsp"]
 
 [ext_resource type="TileSet" uid="uid://dvusrrrd4qp2r" path="res://resources/tilesets/building_tileset.tres" id="1_gk8w0"]
 [ext_resource type="TileSet" uid="uid://v315ncebbe7t" path="res://resources/tilesets/floor_tileset.tres" id="1_pened"]
 [ext_resource type="PackedScene" uid="uid://bfcpybhaglhko" path="res://scenes/props/vehicles/truck_overgrown.tscn" id="2_gk8w0"]
 [ext_resource type="PackedScene" uid="uid://put2wumonxxk" path="res://scenes/props/vehicles/car_rust/car4/car_rust.tscn" id="4_8cf8n"]
 [ext_resource type="Script" uid="uid://dy6rvyj05idwk" path="res://scenes/debug/zombie_spawn.gd" id="5_83jwe"]
+[ext_resource type="PackedScene" uid="uid://blmku5gik12d4" path="res://scenes/agents/zombie.tscn" id="5_gud70"]
 
 [node name="DebugMap" type="Node2D"]
 
@@ -27,6 +28,9 @@ visible = false
 color = Color(0.366594, 0.366595, 0.366594, 1)
 
 [node name="Enemies" type="Node2D" parent="."]
+
+[node name="Zombie" parent="Enemies" instance=ExtResource("5_gud70")]
+position = Vector2(-221, 21)
 
 [node name="ZombieSpawn" type="Node2D" parent="."]
 script = ExtResource("5_83jwe")

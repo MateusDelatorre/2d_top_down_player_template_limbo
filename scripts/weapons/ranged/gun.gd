@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 
 func attack() -> void:
 	var b = bullet.instantiate()
-	get_parent().owner.owner.add_child(b)
+	get_parent().owner.get_parent().add_child(b)
 	b.global_position = barrel.global_position
 	b.look_at(get_global_mouse_position())
 	animation_player.play()

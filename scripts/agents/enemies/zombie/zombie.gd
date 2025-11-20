@@ -2,6 +2,7 @@ extends AgentBase
 class_name Zombie
 
 @export var zombie_data : ZombieData
+@export var player_bus : PlayerBus
 @onready var player : MyPlayer
 @onready var field_of_view : Area2D
 @onready var current_behavior : Callable = func(delta): pass
@@ -27,10 +28,17 @@ var behaviours : Dictionary[StringName, Callable] =\
 
 func _ready() -> void:
 	super._ready()
+	await player_bus.player_entered_group
 	init_nodes()
 	load_data()
 	set_state()
 	attack_cooldown.timeout.connect(_on_attack_cooldown_timeout)
+
+func get_player():
+	if not player:
+		player = get_tree().get_first_node_in_group("player")
+		print(get_tree().get_first_node_in_group("player"))
+	set_state()
 
 func init_nodes():
 	if not player:
@@ -64,6 +72,9 @@ func load_data():
 	stimulus_direction = zombie_data.stimulus_direction
 
 func set_state():
+	if not player:
+		Callable(self, "my_pass")
+		return
 	if stimulus_direction.is_zero_approx():
 		zombie_hsm.initial_state = zombie_hsm.states["idle"]
 		current_behavior = Callable(self, "idle")

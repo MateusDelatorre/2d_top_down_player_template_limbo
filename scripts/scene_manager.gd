@@ -7,7 +7,6 @@ class_name SceneManager
 @onready var debug_map : Node2D
 @onready var player_scene : PackedScene = preload("res://scenes/player/player.tscn")
 @onready var player : MyPlayer
-@onready var player_bus : PlayerBus
 
 func _ready() -> void:
 	game_holder = %GameHolder
@@ -16,13 +15,6 @@ func _ready() -> void:
 	debug_map = debug_map_scene.instantiate()
 	game_holder.add_child(debug_map)
 	debug_map.add_child(player)
-	if not player_bus:
-		player_bus = get_children().filter(
-			func(child): return child is PlayerBus
-		).front()
 
 func getPlayer() -> MyPlayer:
 	return player
-
-func getPlayerBus() -> PlayerBus:
-	return player_bus

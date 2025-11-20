@@ -1,10 +1,11 @@
-[gd_scene load_steps=49 format=3 uid="uid://blmku5gik12d4"]
+[gd_scene load_steps=50 format=3 uid="uid://blmku5gik12d4"]
 
 [ext_resource type="Script" uid="uid://6vba72d1t572" path="res://scripts/agents/enemies/zombie/zombie.gd" id="1_q2m0c"]
 [ext_resource type="Texture2D" uid="uid://crqiyglpot4pg" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Down_Idle-Sheet6.png" id="2_pjps8"]
 [ext_resource type="Script" uid="uid://dwkwoo6mt6agl" path="res://scripts/agents/enemies/zombie/zombie_data.gd" id="2_q2m0c"]
 [ext_resource type="Script" uid="uid://butd8m76acv1f" path="res://scripts/agents/agent_data.gd" id="3_436w8"]
 [ext_resource type="Script" uid="uid://dcunpb1ls3rt4" path="res://scripts/agents/components/health.gd" id="3_rrsmc"]
+[ext_resource type="Resource" uid="uid://byuigyun86voa" path="res://resources/player_bus.tres" id="3_ywt4i"]
 [ext_resource type="Script" uid="uid://b68rgqnpr5wsi" path="res://scripts/agents/components/hitbox.gd" id="4_cg55q"]
 [ext_resource type="Script" uid="uid://b6tdhy3w7qg04" path="res://scripts/agents/components/hurtbox.gd" id="5_ujaj4"]
 [ext_resource type="Texture2D" uid="uid://bko0swwikcbep" path="res://assets/Post-Apocalypse Pixel Art/Enemies/Zombie_Small/Zombie_Small_Down_First-Attack-Sheet4.png" id="6_436w8"]
@@ -702,6 +703,7 @@ motion_mode = 1
 wall_min_slide_angle = 0.174533
 script = ExtResource("1_q2m0c")
 zombie_data = SubResource("Resource_q2m0c")
+player_bus = ExtResource("3_ywt4i")
 agent_data = SubResource("Resource_ywt4i")
 metadata/_custom_type_script = "uid://covhldhl5j6mo"
 
