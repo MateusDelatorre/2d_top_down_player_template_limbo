@@ -31,13 +31,9 @@ func _process(delta):
 		get_viewport().set_input_as_handled()
 
 func _input(event: InputEvent) -> void:
-	return
 	if event is InputEventKey:
-		print(event)
-		if event.is_action_pressed(player_action.pause):
-			print("Game paused: ", get_tree().paused)
-			get_tree().paused = not get_tree().paused
-			get_viewport().set_input_as_handled()
+		if event.is_action_pressed(player_action.open_inventory):
+			player.open_inventory()
 
 func _unhandled_input(event: InputEvent) -> void:
 	_equipament(event)

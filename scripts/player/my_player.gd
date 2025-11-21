@@ -49,3 +49,6 @@ func scope_zoom():
 
 func _physics_process(delta):
 	pass
+
+func open_inventory():
+	player_bus.open_inventory.emit()

@@ -1,7 +1,58 @@
-[gd_scene format=3 uid="uid://cuf5cjki4mhdy"]
+[gd_scene load_steps=9 format=3 uid="uid://cuf5cjki4mhdy"]
+
+[ext_resource type="PackedScene" uid="uid://bvfjc0ymttp65" path="res://scenes/backpack.tscn" id="1_7kvfs"]
+[ext_resource type="Script" uid="uid://dkj8bb3mm11co" path="res://scenes/player/inventory_gui.gd" id="1_47522"]
+[ext_resource type="PackedScene" uid="uid://c4v2itcx3egtw" path="res://scenes/user_interfaces/player_equipament.tscn" id="2_47522"]
+[ext_resource type="Script" uid="uid://ctu3vfl53whl3" path="res://addons/inventory-system-demos/ui/grid/grid_inventory_ui.gd" id="3_hmloo"]
+[ext_resource type="PackedScene" uid="uid://cxevor61mdhtc" path="res://addons/inventory-system-demos/ui/grid/grid_slot_ui.tscn" id="4_0b1sf"]
+[ext_resource type="PackedScene" uid="uid://ch1ixmsfcaf5c" path="res://addons/inventory-system-demos/ui/grid/grid_item_stack_ui.tscn" id="5_tmrqj"]
+[ext_resource type="InventoryDatabase" uid="uid://dxf8won8ig3b7" path="res://resources/inventory/database.tres" id="6_tmrqj"]
+[ext_resource type="Texture2D" uid="uid://dw8qra3psq8ix" path="res://assets/Modern Exteriors/ME_Singles_City_Terrains_48x48_Sidewalk_6_10.png" id="7_uqvmm"]
 
 [node name="InventoryGUI" type="Control"]
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_47522")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 8.0
+
+[node name="PlayerEquipament" parent="HBoxContainer" instance=ExtResource("2_47522")]
+layout_mode = 2
+
+[node name="Backpack" parent="HBoxContainer" instance=ExtResource("1_7kvfs")]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Panel"]
+texture_repeat = 2
+texture = ExtResource("7_uqvmm")
+region_enabled = true
+region_rect = Rect2(0, 0, 288, 576)
+
+[node name="GridInventory" type="GridInventory" parent="HBoxContainer/Panel"]
+size = Vector2i(7, 12)
+database = ExtResource("6_tmrqj")
+
+[node name="GridInventoryUI" type="Control" parent="HBoxContainer/Panel"]
+layout_mode = 2
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -50.0
+offset_top = 80.0
+offset_right = -10.0
+offset_bottom = 120.0
+script = ExtResource("3_hmloo")
+grid_slot_ui_scene = ExtResource("4_0b1sf")
+grid_item_stack_ui_scene = ExtResource("5_tmrqj")
+inventory_path = NodePath("../GridInventory")
+grid_slot_size = Vector2(40, 40)
+metadata/_custom_type_script = "uid://ctu3vfl53whl3"

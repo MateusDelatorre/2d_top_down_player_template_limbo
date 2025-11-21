@@ -1,7 +1,7 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://byuigyun86voa"]
+[gd_resource type="Resource" script_class="PlayerBus" load_steps=2 format=3 uid="uid://sv241esvh4ed"]
 
-[ext_resource type="Script" uid="uid://def8u3q1ncqmv" path="res://scripts/bus/player_bus.gd" id="1_ejjq4"]
+[ext_resource type="Script" uid="uid://def8u3q1ncqmv" path="res://scripts/bus/player_bus.gd" id="1_6p7ku"]
 
 [resource]
-script = ExtResource("1_ejjq4")
+script = ExtResource("1_6p7ku")
 metadata/_custom_type_script = "uid://def8u3q1ncqmv"

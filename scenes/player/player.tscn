@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d2aa3j4xq6ibo" path="res://scripts/player/my_player.gd" id="1_8ydkj"]
 [ext_resource type="Script" uid="uid://butd8m76acv1f" path="res://scripts/agents/agent_data.gd" id="2_3j4b4"]
 [ext_resource type="Script" uid="uid://b85hbvo5345m1" path="res://scripts/player/hsm/player_hsm.gd" id="2_dovo2"]
-[ext_resource type="Resource" uid="uid://byuigyun86voa" path="res://resources/player_bus.tres" id="2_ioxgp"]
+[ext_resource type="Resource" uid="uid://sv241esvh4ed" path="res://resources/player_bus.tres" id="2_ioxgp"]
 [ext_resource type="Texture2D" uid="uid://0y6trgyh7pmi" path="res://assets/Post-Apocalypse Pixel Art/Character/Main/Idle/Character_down_idle_no-hands-Sheet6.png" id="3_h17s1"]
 [ext_resource type="Script" uid="uid://cqxmltjess86w" path="res://scripts/player/states/idle_state.gd" id="3_lvxji"]
 [ext_resource type="Texture2D" uid="uid://cxxiwmkvu2fog" path="res://assets/Post-Apocalypse Pixel Art/Character/Main/Idle/Character_side-left_idle_no-hands-Sheet6.png" id="4_je7p5"]
@@ -606,8 +606,6 @@ libraries = {
 script = ExtResource("8_5gtgg")
 max_health = 1.0
 metadata/_custom_type_script = "uid://dcunpb1ls3rt4"
-
-[node name="Inventory" type="Inventory" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

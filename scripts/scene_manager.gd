@@ -18,3 +18,6 @@ func _ready() -> void:
 
 func getPlayer() -> MyPlayer:
 	return player
+
+func _open_inventory():
+	pass

@@ -12,6 +12,7 @@ extends Resource
 @export var equip_3: String = "equip_3"
 @export var equip_4: String = "equip_4"
 @export var pause: String = "pause"
+@export var open_inventory : String = "open_inventory"
 
 func create_actions():
 	_create_move_down_event()
@@ -25,6 +26,7 @@ func create_actions():
 	_create_quick_slot3_event()
 	_create_quick_slot4_event()
 	_create_pause_event()
+	_create_open_inventory_event()
 	
 func _create_move_down_event():
 	if not InputMap.has_action(move_down):
@@ -104,3 +106,12 @@ func _create_pause_event():
 		InputMap.action_add_event(pause, event)
 		event.keycode = KEY_P
 		InputMap.action_add_event(pause, event)
+
+func _create_open_inventory_event():
+	if not InputMap.has_action(open_inventory):
+		InputMap.add_action(open_inventory)
+		var event = InputEventKey.new()
+		event.keycode = KEY_I
+		InputMap.action_add_event(open_inventory, event)
+		event.keycode = KEY_TAB
+		InputMap.action_add_event(open_inventory, event)

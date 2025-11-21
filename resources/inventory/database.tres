@@ -1,4 +1,4 @@
-[gd_resource type="InventoryDatabase" load_steps=4 format=3 uid="uid://dxf8won8ig3b7"]
+[gd_resource type="InventoryDatabase" load_steps=6 format=3 uid="uid://dxf8won8ig3b7"]
 
 [ext_resource type="Texture2D" uid="uid://cipt0bwc5e2wd" path="res://assets/Post-Apocalypse Pixel Art/Objects/Pickable/Bandage.png" id="1_cj4qk"]
 
@@ -10,8 +10,13 @@ name = "Bandage"
 icon = ExtResource("1_cj4qk")
 size = Vector2i(1, 2)
 
+[sub_resource type="ItemDefinition" id="ItemDefinition_cj4qk"]
+name = "New Item Definition"
+
 [sub_resource type="Loot" id="Loot_cj4qk"]
 
+[sub_resource type="Loot" id="Loot_vkkm8"]
+
 [resource]
-items = Array[ItemDefinition]([SubResource("ItemDefinition_tujtt")])
-loots = Array[Loot]([SubResource("Loot_cj4qk")])
+items = Array[ItemDefinition]([SubResource("ItemDefinition_tujtt"), SubResource("ItemDefinition_cj4qk")])
+loots = Array[Loot]([SubResource("Loot_cj4qk"), SubResource("Loot_vkkm8")])
