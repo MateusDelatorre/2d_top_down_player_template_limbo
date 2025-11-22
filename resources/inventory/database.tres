@@ -1,6 +1,7 @@
-[gd_resource type="InventoryDatabase" load_steps=6 format=3 uid="uid://dxf8won8ig3b7"]
+[gd_resource type="InventoryDatabase" load_steps=7 format=3 uid="uid://dxf8won8ig3b7"]
 
 [ext_resource type="Texture2D" uid="uid://cipt0bwc5e2wd" path="res://assets/Post-Apocalypse Pixel Art/Objects/Pickable/Bandage.png" id="1_cj4qk"]
+[ext_resource type="Texture2D" uid="uid://ccjec151t7j2t" path="res://assets/Post-Apocalypse Pixel Art/Objects/Pickable/Gun.png" id="2_vkkm8"]
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_tujtt"]
 id = "bandage"
@@ -11,7 +12,8 @@ icon = ExtResource("1_cj4qk")
 size = Vector2i(1, 2)
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_cj4qk"]
-name = "New Item Definition"
+name = "M16"
+icon = ExtResource("2_vkkm8")
 
 [sub_resource type="Loot" id="Loot_cj4qk"]
 

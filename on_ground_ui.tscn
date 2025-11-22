@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://f41aqo6xe4al"]
+
+[ext_resource type="Texture2D" uid="uid://dw8qra3psq8ix" path="res://assets/Modern Exteriors/ME_Singles_City_Terrains_48x48_Sidewalk_6_10.png" id="1_d8iy3"]
+[ext_resource type="InventoryDatabase" uid="uid://dxf8won8ig3b7" path="res://resources/inventory/database.tres" id="2_evr7h"]
+[ext_resource type="Script" uid="uid://ctu3vfl53whl3" path="res://addons/inventory-system-demos/ui/grid/grid_inventory_ui.gd" id="3_6vspx"]
+[ext_resource type="PackedScene" uid="uid://cxevor61mdhtc" path="res://addons/inventory-system-demos/ui/grid/grid_slot_ui.tscn" id="4_4r30c"]
+[ext_resource type="PackedScene" uid="uid://ch1ixmsfcaf5c" path="res://addons/inventory-system-demos/ui/grid/grid_item_stack_ui.tscn" id="5_u2xh1"]
+
+[node name="Panel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 320.0
+offset_bottom = 688.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 72.0
+offset_right = 102.0
+offset_bottom = 95.0
+text = "On Ground"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(160, 384)
+texture = ExtResource("1_d8iy3")
+region_enabled = true
+region_rect = Rect2(0, 0, 288, 576)
+
+[node name="GridInventoryUI" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 104.0
+offset_right = 64.0
+offset_bottom = 144.0
+script = ExtResource("3_6vspx")
+grid_slot_ui_scene = ExtResource("4_4r30c")
+grid_item_stack_ui_scene = ExtResource("5_u2xh1")
+inventory_path = NodePath("../GridInventory")
+grid_slot_size = Vector2(40, 40)
+metadata/_custom_type_script = "uid://ctu3vfl53whl3"
+
+[node name="GridInventory" type="GridInventory" parent="."]
+size = Vector2i(7, 12)
+database = ExtResource("2_evr7h")

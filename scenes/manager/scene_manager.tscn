@@ -39,3 +39,4 @@ unique_name_in_owner = true
 [node name="PlayerInterface" parent="CanvasLayer/SubViewportContainer/UIManager" instance=ExtResource("3_a43uu")]
 
 [node name="InventoryGUI" parent="CanvasLayer/SubViewportContainer/UIManager" instance=ExtResource("4_4gkph")]
+visible = false
